@@ -15,7 +15,7 @@
  :builds
  {:app
   {:target :browser
-   :output-dir "public/chess-cljs/js"
+   :output-dir "public/js"
    :asset-path "chess-cljs/js"
    
    :modules
