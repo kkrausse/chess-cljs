@@ -20,7 +20,7 @@
   x)
 
 (def worker-engine
-  (let [c (load-worker "/js/worker.js")]
+  (let [c (load-worker "/chess-cljs/js/worker.js")]
     (prn "loaded worker, theoretically")
     (reify Engine
       (apply-move [_ board move] (go (let [r (<! (submit-command c :apply-move board move))]

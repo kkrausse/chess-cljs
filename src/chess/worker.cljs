@@ -10,11 +10,9 @@
 (defn init []
   (init-worker
     (fn [msg]
-      (prn "got msg " msg)
       (let [r (match (:cmd msg)
              :apply-move (apply apply-move (cons local-engine (msg :args)))
              :best-move (apply best-move (cons local-engine (msg :args)))
              :possible-moves (apply possible-moves (cons local-engine (msg :args)))
              :else "no dice!")]
-        (prn "got response " r)
         r))))

@@ -27,5 +27,5 @@
          (if has-piece
            (cmp [] {:type "img"
                     :style {"width" "90%"}
-                    :elem-props {"src" (str "pieces/" (props :color) "_" (props :piece) ".svg")}})
+                    :elem-props {"src" (str "/chess-cljs/pieces/" (props :color) "_" (props :piece) ".svg")}})
            '()))))
