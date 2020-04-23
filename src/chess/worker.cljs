@@ -11,7 +11,7 @@
                               best-move]]
    [chess.engine.local-engine :refer [local-engine]]
    [clojure.core.async :refer [go go-loop >! <! chan close!]]
-   [chess.utils :refer [match]]
+   [chess.utils :refer [match asset-path]]
    [cljs.reader :refer [read-string]]))
 
 ;; Set up eval environment
@@ -22,7 +22,7 @@
 
 (defonce _
          (boot/init c-state
-                    {:path "/js/bootstrap"}
+                    {:path (asset-path "/js/bootstrap")}
                     (fn []
                       (go (>! inited true) (close! inited)))))
 
@@ -38,8 +38,7 @@
       c-state
       source
       {:eval cljs/js-eval
-       :load (partial boot/load c-state)
-       :ns (symbol "chess.user")}
+       :load (partial boot/load c-state)}
       #(go 
          (>! c %)
          (close! c)))

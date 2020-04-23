@@ -8,7 +8,7 @@
   (apply map (cons vector seqs)))
 
 (defn asset-path [rec]
-  (if (.includes js/window.location.href "localhost")
+  (if (.includes js/self.location.href "localhost")
     rec
     (str "/chess-cljs" rec)))
 

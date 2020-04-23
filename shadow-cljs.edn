@@ -15,7 +15,7 @@
  :builds
  {:bootstrap {:target     :bootstrap
               :output-dir "public/js/bootstrap"
-              :entries    [chess.engine.core chess.engine.local-engine chess.user]
+              :entries    [chess.engine.core chess.engine.local-engine]
               :exclude    #{cljs.js}}
   :app {:target :browser
         :output-dir "public/js"
