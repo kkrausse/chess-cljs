@@ -1,0 +1,1 @@
+goog.provide('chess.user');
