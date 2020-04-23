@@ -35,7 +35,6 @@
                       (min (.-innerWidth js/window)
                            (.-innerHeight js/window)))]
 
-    ;(prn "moves " moves)
   (cmp [[state set-state] (use-state {:selected nil})]
        {:type "div"
         :style {"width" (str board-size "px")

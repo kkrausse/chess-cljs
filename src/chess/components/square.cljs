@@ -1,6 +1,7 @@
 (ns chess.components.square
  (:require
-    [html-cljs.html :as html :refer [cmp]]))
+    [html-cljs.html :as html :refer [cmp]]
+    [chess.utils :refer [asset-path]]))
 ; this is loaded into board.cljs
 
 (defn square [props]
@@ -27,5 +28,5 @@
          (if has-piece
            (cmp [] {:type "img"
                     :style {"width" "90%"}
-                    :elem-props {"src" (str "/chess-cljs/pieces/" (props :color) "_" (props :piece) ".svg")}})
+                    :elem-props {"src" (asset-path (str "/pieces/" (props :color) "_" (props :piece) ".svg"))}})
            '()))))

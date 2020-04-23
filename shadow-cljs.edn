@@ -13,24 +13,28 @@
  :js-options {:js-provider :shadow}
  
  :builds
- {:app
-  {:target :browser
-   :output-dir "public/js"
-   :asset-path "chess-cljs/js"
+ {:bootstrap {:target     :bootstrap
+              :output-dir "public/js/bootstrap"
+              :entries    [chess.engine.core chess.engine.local-engine chess.user]
+              :exclude    #{cljs.js}}
+  :app {:target :browser
+        :output-dir "public/js"
+        :asset-path "/js"
    
-   :modules
-   {:shared
-    {:entries []}
-    :main
-    {:init-fn chess.core/init
-     :depends-on #{:shared}}
-    :worker
-    {:init-fn chess.worker/init
-     :depends-on #{:shared}
-     :web-worker true}}
+        :modules {:shared {:entries [shadow.cljs.bootstrap.browser cljs.js]}
+                  :main
+                  {:init-fn chess.core/init
+                   :depends-on #{:shared}}
+                  :worker
+                  {:init-fn chess.worker/init
+                   :depends-on #{:shared}
+                   :web-worker true}}
+  
+ 
+        :compiler-options {:optimizations :simple}
    
-   :devtools
-    {:browser-inject :main
-     :repl-pprint true
-     :http-root "public"
-     :http-port 8020}}}}
+        :devtools {:browser-inject :main
+                   :repl-pprint true
+                  :after-load chess.core/init
+                  :http-root "public"
+                  :http-port 8020}}}}

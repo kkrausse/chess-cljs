@@ -7,7 +7,6 @@
             [chess.engine.local-engine :refer [local-engine]]
             [chess.engine.worker-engine :refer [worker-engine]]
             [html-cljs.html :as html]
-            [chess.utils :refer [load-worker]]
             [clojure.core.async :refer [go >! <! chan]]))
 
 (defn use-engine [my-color]
