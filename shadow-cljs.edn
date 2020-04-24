@@ -19,7 +19,7 @@
               :exclude    #{cljs.js}}
   :app {:target :browser
         :output-dir "public/js"
-        :asset-path "/js"
+        :asset-path "/chess-cljs/js"
    
         :modules {:shared {:entries [shadow.cljs.bootstrap.browser cljs.js]}
                   :main
