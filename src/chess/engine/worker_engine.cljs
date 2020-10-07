@@ -9,7 +9,7 @@
             [chess.engine.local-engine :refer [local-engine]]
             [cljs.reader :refer [read-string]]
             [clojure.walk :as walk]
-            [chess.utils :refer [screen-print zip match plusminus maxf literalize asset-path]]))
+            [chess.utils :refer [screen-print zip match plusminus maxf literalize]]))
 
 (declare submit-command
          printl)
@@ -44,7 +44,7 @@
 (defonce _ (do
              ; initially load 4 workers
              (doseq [i (range 4)]
-               (go (>! worker-chan-chan (load-worker (asset-path "/js/worker.js") i))))
+               (go (>! worker-chan-chan (load-worker "js/worker.js" i))))
 
              ; do the recurrent loop to submit work
              (go-loop [{:keys [rc form]} (<! work-chan)

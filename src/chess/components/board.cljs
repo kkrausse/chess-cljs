@@ -1,7 +1,7 @@
 (ns chess.components.board
   (:require
     [html-cljs.hooks :refer [use-state]]
-    [chess.utils :refer [zip nilmap asset-path]]
+    [chess.utils :refer [zip nilmap]]
     [html-cljs.html :as html :refer [cmp]]))
 
 (declare board-row
@@ -79,7 +79,6 @@
          (list
            (list (cmp [piece color] {:type "img"
                           :style {"width" "90%"}
-                          :elem-props {"src" (asset-path
-                                               (str "/pieces/" color
-                                                    "_" piece ".svg"))}})
+                          :elem-props {"src" (str "./pieces/" color
+                                                    "_" piece ".svg")}})
                  piece color)))))

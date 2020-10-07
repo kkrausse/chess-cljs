@@ -21,7 +21,7 @@ ClojureScript client-side chess ai for learning
 ### Deployment
 
     yarn shadow-cljs compile app bootstrap
-    # then comment out the /js/ line in the .ginitgnore
+    # then comment out the /js/ line in the .gitignore
     git add public && git commit -m "public subtree commit"
     git subtree push --prefix public origin gh-pages
 

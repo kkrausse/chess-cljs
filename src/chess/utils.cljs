@@ -7,11 +7,6 @@
 (defn zip [& seqs]
   (apply map (cons vector seqs)))
 
-(defn asset-path [rec]
-  (if (.includes js/self.location.href "localhost")
-    rec
-    (str "/chess-cljs" rec)))
-
 (defn screen-print [& stuff]
   (.appendChild (aget (.getElementsByTagName js/document "BODY") 0)
                 (let [el (.createElement js/document "p")]

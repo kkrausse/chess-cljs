@@ -15,11 +15,14 @@
  :builds
  {:bootstrap {:target     :bootstrap
               :output-dir "public/js/bootstrap"
+              :asset-path "js/bootstrap"
               :entries    [chess.engine.core chess.engine.local-engine]
+              :compiler-options {:optimizations :simple
+                                 :asset-path "js/bootstrap"}
               :exclude    #{cljs.js}}
   :app {:target :browser
         :output-dir "public/js"
-        :asset-path "./js"
+        :asset-path "js"
    
         :modules {:shared {:entries [shadow.cljs.bootstrap.browser cljs.js]}
                   :main
