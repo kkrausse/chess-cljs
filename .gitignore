@@ -1,6 +1,6 @@
 node_modules/
 .shadow-cljs/
-# */js/ # comment this out to push to gh pages
+*/js/ # comment this out to push to gh pages
 package-lock.json
 target/
 pom.xml

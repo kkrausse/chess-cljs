@@ -1,9 +1,11 @@
 (ns chess.components.board
   (:require
-    [chess.components.square :refer [square]]
     [html-cljs.hooks :refer [use-state]]
-    [chess.utils :refer [zip nilmap]]
+    [chess.utils :refer [zip nilmap asset-path]]
     [html-cljs.html :as html :refer [cmp]]))
+
+(declare board-row
+         square)
 
 (defn find-move [moves move]
   (let [[mfrom mto] move]
@@ -19,6 +21,7 @@
     (assoc sq
            :tint (= (mod (+ j (mod i 2)) 2) 0)
            :on-click (fn []
+                       (print "clicked the thing!" (nil? move-here))
                        (if (nil? move-here)
                          (set-state #(assoc % :selected [i j]))
                          (on-move move-here)))
@@ -27,22 +30,56 @@
            :piece (nilmap (sq :piece) #(name %))
            :color (nilmap (sq :color) #(name %)))))
 
-(defn board [& {:keys [board player moves on-move]}]
-  "{:board - a 2d array containing the board. Always white on bottom, not matter
+(def board
+    "{:board - a 2d array containing the board. Always white on bottom, not matter
             who the player is
     :player - 'white' or 'black' - will flip the board if black}"
-  (let [board-size (* 0.9
+  (cmp [& {:keys [board player moves on-move]}]
+     [[state set-state] (use-state {:selected nil})]
+     {:type "div"
+      :style (let [board-size (* 0.8
                       (min (.-innerWidth js/window)
                            (.-innerHeight js/window)))]
-
-  (cmp [[state set-state] (use-state {:selected nil})]
-       {:type "div"
-        :style {"width" (str board-size "px")
+               {"width" (str board-size "px")
                 "height" (str board-size "px")
                 "display" "inline-block"
-                "margin" "5px"}}
+                "margin" "5px"})}
      (for [[row i] (zip board (range 8))]
-       (cmp [] {:type "div"
-                :style {"display" "flex" "height" "13%"}}
-         (for [[sq j] (zip row (range 8))]
-             (square (uiify sq i j state set-state moves on-move))))))))
+       (list board-row
+             row i state set-state moves on-move))))
+
+(def board-row
+  (cmp [row i state set-state moves on-move]
+       {:type "div"
+        :style {"display" "flex" "height" "13%"}}
+       (for [[sq j] (zip row (range 8))]
+         (cons square (mapcat identity
+                              (uiify sq i j (state)
+                                     set-state moves on-move))))))
+
+(def square
+  "props are:
+  :peice [none|rook|pawn|...]
+  :tint [true|false]
+  :color [white|black]"
+  (cmp [& {:keys [piece selected can-move-to tint on-click color]}]
+       {:type "div"
+        :style {"float" "left"
+                "width" "15%"
+                "background" (cond
+                               selected "#40aad4"
+                               can-move-to "#4ae896"
+                               tint "#d4cebc"
+                               :else "#fff")
+                "border" (if can-move-to
+                           "1px dotted #40aad4"
+                           "1px solid #999")}
+        :on {"click" #(on-click)}}
+       (when (some? piece)
+         (list
+           (list (cmp [piece color] {:type "img"
+                          :style {"width" "90%"}
+                          :elem-props {"src" (asset-path
+                                               (str "/pieces/" color
+                                                    "_" piece ".svg"))}})
+                 piece color)))))
