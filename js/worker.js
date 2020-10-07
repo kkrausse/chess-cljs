@@ -11,7 +11,7 @@ $jscomp.checkStringArgs=function(a,b,c){if(null==a)throw new TypeError("The 'thi
 $jscomp.polyfill("String.prototype.startsWith",function(a){return a?a:function(b,c){var d=$jscomp.checkStringArgs(this,b,"startsWith");b+="";var e=d.length,f=b.length;c=Math.max(0,Math.min(c|0,d.length));for(var g=0;g<f&&c<e;)if(d[c++]!=b[g++])return!1;return g>=f}},"es6","es3");$jscomp.createTemplateTagFirstArg=function(a){return a.raw=a};$jscomp.createTemplateTagFirstArgWithRaw=function(a,b){a.raw=b;return a};
 $jscomp.polyfill("String.prototype.endsWith",function(a){return a?a:function(b,c){var d=$jscomp.checkStringArgs(this,b,"endsWith");b+="";void 0===c&&(c=d.length);c=Math.max(0,Math.min(c|0,d.length));for(var e=b.length;0<e&&0<c;)if(d[--c]!=b[--e])return!1;return 0>=e}},"es6","es3");
 $jscomp.polyfill("String.prototype.repeat",function(a){return a?a:function(b){var c=$jscomp.checkStringArgs(this,null,"repeat");if(0>b||1342177279<b)throw new RangeError("Invalid count value");b|=0;for(var d="";b;)if(b&1&&(d+=c),b>>>=1)c+=c;return d}},"es6","es3");$jscomp.polyfill("Array.prototype.find",function(a){return a?a:function(b,c){return $jscomp.findInternal(this,b,c).v}},"es6","es3");var CLOSURE_NO_DEPS = true;
-var CLOSURE_BASE_PATH = './js/cljs-runtime/';
+var CLOSURE_BASE_PATH = 'js/cljs-runtime/';
 var CLOSURE_DEFINES = {"goog.DEBUG":true,"goog.LOCALE":"en","goog.TRANSPILE":"never","goog.ENABLE_DEBUG_LOADER":false};
 var COMPILED = false;
 var goog = goog || {};

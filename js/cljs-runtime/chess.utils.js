@@ -8,14 +8,14 @@ return null;
 });
 chess.utils.zip = (function chess$utils$zip(var_args){
 var args__4742__auto__ = [];
-var len__4736__auto___7263 = arguments.length;
-var i__4737__auto___7264 = (0);
+var len__4736__auto___7435 = arguments.length;
+var i__4737__auto___7439 = (0);
 while(true){
-if((i__4737__auto___7264 < len__4736__auto___7263)){
-args__4742__auto__.push((arguments[i__4737__auto___7264]));
+if((i__4737__auto___7439 < len__4736__auto___7435)){
+args__4742__auto__.push((arguments[i__4737__auto___7439]));
 
-var G__7265 = (i__4737__auto___7264 + (1));
-i__4737__auto___7264 = G__7265;
+var G__7446 = (i__4737__auto___7439 + (1));
+i__4737__auto___7439 = G__7446;
 continue;
 } else {
 }
@@ -33,28 +33,21 @@ return cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.map,cljs.core.con
 (chess.utils.zip.cljs$lang$maxFixedArity = (0));
 
 /** @this {Function} */
-(chess.utils.zip.cljs$lang$applyTo = (function (seq7163){
+(chess.utils.zip.cljs$lang$applyTo = (function (seq7242){
 var self__4724__auto__ = this;
-return self__4724__auto__.cljs$core$IFn$_invoke$arity$variadic(cljs.core.seq(seq7163));
+return self__4724__auto__.cljs$core$IFn$_invoke$arity$variadic(cljs.core.seq(seq7242));
 }));
 
-chess.utils.asset_path = (function chess$utils$asset_path(rec){
-if(cljs.core.truth_(self.location.href.includes("localhost"))){
-return rec;
-} else {
-return ["/chess-cljs",cljs.core.str.cljs$core$IFn$_invoke$arity$1(rec)].join('');
-}
-});
 chess.utils.screen_print = (function chess$utils$screen_print(var_args){
 var args__4742__auto__ = [];
-var len__4736__auto___7266 = arguments.length;
-var i__4737__auto___7267 = (0);
+var len__4736__auto___7466 = arguments.length;
+var i__4737__auto___7471 = (0);
 while(true){
-if((i__4737__auto___7267 < len__4736__auto___7266)){
-args__4742__auto__.push((arguments[i__4737__auto___7267]));
+if((i__4737__auto___7471 < len__4736__auto___7466)){
+args__4742__auto__.push((arguments[i__4737__auto___7471]));
 
-var G__7268 = (i__4737__auto___7267 + (1));
-i__4737__auto___7267 = G__7268;
+var G__7475 = (i__4737__auto___7471 + (1));
+i__4737__auto___7471 = G__7475;
 continue;
 } else {
 }
@@ -78,47 +71,47 @@ return cljs.core.last(stuff);
 (chess.utils.screen_print.cljs$lang$maxFixedArity = (0));
 
 /** @this {Function} */
-(chess.utils.screen_print.cljs$lang$applyTo = (function (seq7214){
+(chess.utils.screen_print.cljs$lang$applyTo = (function (seq7263){
 var self__4724__auto__ = this;
-return self__4724__auto__.cljs$core$IFn$_invoke$arity$variadic(cljs.core.seq(seq7214));
+return self__4724__auto__.cljs$core$IFn$_invoke$arity$variadic(cljs.core.seq(seq7263));
 }));
 
 chess.utils.maxf = (function chess$utils$maxf(f,xs){
-var G__7243 = xs;
-var vec__7244 = G__7243;
-var seq__7245 = cljs.core.seq(vec__7244);
-var first__7246 = cljs.core.first(seq__7245);
-var seq__7245__$1 = cljs.core.next(seq__7245);
-var head = first__7246;
-var remaining = seq__7245__$1;
+var G__7298 = xs;
+var vec__7299 = G__7298;
+var seq__7300 = cljs.core.seq(vec__7299);
+var first__7301 = cljs.core.first(seq__7300);
+var seq__7300__$1 = cljs.core.next(seq__7300);
+var head = first__7301;
+var remaining = seq__7300__$1;
 var cur_max = (f.cljs$core$IFn$_invoke$arity$1 ? f.cljs$core$IFn$_invoke$arity$1(head) : f.call(null,head));
 var cur_max_x = head;
-var G__7243__$1 = G__7243;
+var G__7298__$1 = G__7298;
 var cur_max__$1 = cur_max;
 var cur_max_x__$1 = cur_max_x;
 while(true){
-var vec__7257 = G__7243__$1;
-var seq__7258 = cljs.core.seq(vec__7257);
-var first__7259 = cljs.core.first(seq__7258);
-var seq__7258__$1 = cljs.core.next(seq__7258);
-var head__$1 = first__7259;
-var remaining__$1 = seq__7258__$1;
+var vec__7341 = G__7298__$1;
+var seq__7342 = cljs.core.seq(vec__7341);
+var first__7343 = cljs.core.first(seq__7342);
+var seq__7342__$1 = cljs.core.next(seq__7342);
+var head__$1 = first__7343;
+var remaining__$1 = seq__7342__$1;
 var cur_max__$2 = cur_max__$1;
 var cur_max_x__$2 = cur_max_x__$1;
 var cur_val = (f.cljs$core$IFn$_invoke$arity$1 ? f.cljs$core$IFn$_invoke$arity$1(head__$1) : f.call(null,head__$1));
-var vec__7260 = (((cur_val > cur_max__$2))?new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cur_val,head__$1], null):((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(cur_val,cur_max__$2))?(((cljs.core.rand.cljs$core$IFn$_invoke$arity$0() > 0.5))?new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cur_max__$2,cur_max_x__$2], null):new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cur_val,head__$1], null)):new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cur_max__$2,cur_max_x__$2], null)
+var vec__7346 = (((cur_val > cur_max__$2))?new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cur_val,head__$1], null):((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(cur_val,cur_max__$2))?(((cljs.core.rand.cljs$core$IFn$_invoke$arity$0() > 0.5))?new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cur_max__$2,cur_max_x__$2], null):new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cur_val,head__$1], null)):new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cur_max__$2,cur_max_x__$2], null)
 ));
-var maxv = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__7260,(0),null);
-var maxx = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__7260,(1),null);
+var maxv = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__7346,(0),null);
+var maxx = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__7346,(1),null);
 if(cljs.core.empty_QMARK_(remaining__$1)){
 return maxx;
 } else {
-var G__7269 = remaining__$1;
-var G__7270 = maxv;
-var G__7271 = maxx;
-G__7243__$1 = G__7269;
-cur_max__$1 = G__7270;
-cur_max_x__$1 = G__7271;
+var G__7516 = remaining__$1;
+var G__7517 = maxv;
+var G__7518 = maxx;
+G__7298__$1 = G__7516;
+cur_max__$1 = G__7517;
+cur_max_x__$1 = G__7518;
 continue;
 }
 break;
